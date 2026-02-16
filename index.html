@@ -4,8 +4,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Manos Unidas - Comunidad y Progreso</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script>
         tailwind.config = {
             darkMode: "class",
@@ -140,12 +140,6 @@
             background: #a3e635;
             box-shadow: 0 0 30px rgba(132, 204, 22, 0.6);
         }
-        .bg-mesh {
-            background-color: #020617; 
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,10%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,10%,1) 0, transparent 50%);}
         .hero-gradient-text {
             background: linear-gradient(to right, #84CC16, #fff, #A855F7);
             -webkit-background-clip: text;
@@ -171,9 +165,11 @@
 </head>
 <body class="bg-background-dark text-slate-200 min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-white">
 <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-<div class="absolute inset-0 bg-mesh"></div>
-<div class="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
-<div class="absolute bottom-[-10%] right-[10%] w-[700px] h-[700px] bg-secondary/5 rounded-full blur-[120px] opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute inset-0 bg-black">
+        <img src="manos_unidas_oscuro.png" alt="Fondo" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
+    <div class="absolute bottom-[-10%] right-[10%] w-[700px] h-[700px] bg-secondary/5 rounded-full blur-[120px] opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
 </div>
 <nav class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-background-dark/80">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -284,30 +280,31 @@
 <div class="flex flex-col md:flex-row items-end justify-between mb-16 border-b border-white/10 pb-8">
 <div>
 <h2 class="text-4xl font-bold text-white tracking-tight mb-3">
-                        Nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Iniciativas</span>
+                            Nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Iniciativas</span>
 </h2>
 <p class="text-slate-400 text-lg max-w-2xl font-light">
-                        Áreas clave donde enfocamos nuestra energía para mejorar tu experiencia universitaria.
-                    </p>
+                            Áreas clave donde enfocamos nuestra energía para mejorar tu experiencia universitaria.
+                        </p>
 </div>
 <div class="hidden md:block">
 <a class="text-primary hover:text-white transition-colors flex items-center gap-2 font-medium" href="#">
-                        Ver todas las propuestas
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            Ver todas las propuestas
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-<div class="card-3d-wrapper group h-full">
+    
+    <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
 <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-4xl text-blue-400">sports_esports</span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-900/40 border border-blue-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Trofeo" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0NvMPz57lcNHw2cPsMrfzy8YyMwL3XnyeHPKd_qkvjseHAOGLhiVBDjQZGGFw3HT23EsjPQ2ZHydI0WWqLdznadB5JYuStU0P2Crd7LzldR5u6fT3qMAoqzphdnl4OCo0zdGhcYK3DpcXDJ7Gr0Wcg929mEyA86mxtrU18lZA_Rbfn4W1h81vV9uUxK-xIdQvsi1ShoW_HyyepHnsJ6qVMHz1Ih12DHIi6Qd4pJ2mIkHamP4w2gIMTCDaKMywYSF9vjS2WBiWv3g"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-900/40 border border-blue-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="Torneos" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform" src="football imagen.jpg"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Deportes y Gaming</h3>
+<h3 class="text-2xl font-bold text-white mb-4">Torneos</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 Torneos competitivos y actividades recreativas. Unimos la pasión por los e-sports con el deporte tradicional.
                             </p>
@@ -318,16 +315,17 @@
 </div>
 </div>
 </div>
+
 <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
 <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-4xl text-green-400">hiking</span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-900/40 border border-green-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Zapatillas Running" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:rotate-12 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyO39kezZSHJOjD2TfwNFLBwyV4RvrQM-23hMkRhR-E9-Dj2qPCr9ejMVtUBp1UFWnXKZ6GalrlMWKBreQfNcRj3o_hjaq2CV2swjhzcN1a18Zcm5_w6EKlCMaiGryZo9-i3zKsftsDFkbFr9QOMkII-tuKfn6BROyBvEqfeaGMwbzr4qlP4a9EOB4GdbuH_cAVEzL_DdoMRgF0138OLpPUmqZIiMOO3uAvOF10eQahgnzoOLiZnG1kQfdPne81iL9XVnEpAQLBk"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-900/40 border border-green-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="Correcaminatas" class="w-full h-full object-cover transform group-hover:rotate-12 transition-transform" src="correcaminata recuadro derecho.png"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Vida al Aire Libre</h3>
+<h3 class="text-2xl font-bold text-white mb-4">Correcaminatas</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 Conectando estudiantes con la naturaleza. Correcaminatas, eventos outdoor y bienestar físico en la Sierra.
                             </p>
@@ -338,6 +336,7 @@
 </div>
 </div>
 </div>
+
 <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-white/5 border-secondary/30 shadow-[0_0_30px_rgba(168,85,247,0.15)]">
 <div class="absolute top-6 right-6">
@@ -346,11 +345,11 @@
 <span class="text-[10px] font-bold text-red-200 uppercase tracking-wider">En Vivo</span>
 </span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-900/40 border border-purple-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Micrófono" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:-translate-y-2 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP4mgXqjYjgm08iL8PrqIYQ0M-9scY-0j3S3RibEvQWkRFOqiziX5EcZ0RVApxRnz2HjKDO5HGjqVqeOb1eFh_kzrHbBVmtixVXnlf4-oArG3LsnQjevTdYlGIV08NCezva4KmOk9sj7CMGBX0u5ZlhTl6FbXy2W3j25eb8YjzWia04E0SODKKo6LFBiiZFwXIsPYqREG07nMI8-tXXj7mvHSdSQ8fqHKgBtWnJug2gVsF0DLMg67zwEwLcHNhfj3FlpPiP5oE8Ag"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-900/40 border border-purple-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="Podcast" class="w-full h-full object-cover transform group-hover:-translate-y-2 transition-transform" src="podcast fondo de pantalla.png"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Podcast Studio</h3>
+<h3 class="text-2xl font-bold text-white mb-4">Podcast</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 Espacio de voz y expresión. Entrevistas, debates y streaming de alta calidad para comunicar ideas.
                             </p>
@@ -361,16 +360,17 @@
 </div>
 </div>
 </div>
+
 <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
 <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-4xl text-yellow-400">inventory_2</span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-900/40 border border-yellow-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Libros y Recursos" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:skew-y-3 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh6Bg2w2fwBVoNv4Rf_3Hmpw4GeXrAh6LuiRczyOnE0xK9putr2h_fcQTeiMscDui3AESm1wIl1B9DvA4wyc7bd8OALNBnRzF5Gc1OO16Uw_m2GY1JoDQw57YD15ZX_IDMM6RElMr7UqOC___a07L7V13oFjx6zjuV28NgZAhpOjnayzMVwgkFM01fXTv2piMzmsgDerKXIjpU6tjx-ktr1060-2DvtaGVXmSvKTVFp1RXl-W-PSJ_e55DaHxuE0SDo7hI2op6f6I"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-900/40 border border-yellow-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="Proyecto Materiales" class="w-full h-full object-cover transform group-hover:skew-y-3 transition-transform" src="útiles derecha.png"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Banco de Recursos</h3>
+<h3 class="text-2xl font-bold text-white mb-4">Proyecto Materiales</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 Gestión inteligente de materiales de estudio y herramientas. Compras colaborativas para el beneficio de todos.
                             </p>
@@ -381,16 +381,17 @@
 </div>
 </div>
 </div>
+
 <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
 <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-4xl text-pink-400">palette</span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-900/40 border border-pink-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Paleta de Arte" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:rotate-6 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDPhPYbnU8FdOqUCAW3wxZHWSLd3amBtGbBvq37rpF5qhys-U6V0gJEbzheXKRO7tdEHS5VUjkwDLEOFB3ShZ5xeAdozRksFbxtZlI_drpuKBIBjGvZFrk0cuTczsfufLRrah6icfwFL2mKzqm-Ka_E_VJ00VeqYlIS0gP0zElOPuDknPdw2MsKO4JVTu0jK1aDBNi3JPn88eTUJuyXCPbl4CXPPe0QWe_YbGP-pMsA06dqdrGnH6U81axU2EPkIkJyW8jXpZVNg"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-900/40 border border-pink-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="Pared Creativa" class="w-full h-full object-cover transform group-hover:rotate-6 transition-transform" src="pared creativa derecha.png"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Arte y Cultura</h3>
+<h3 class="text-2xl font-bold text-white mb-4">Pared Creativa</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 Fomentando la creatividad. Espacios de exposición, talleres y eventos culturales para toda la comunidad.
                             </p>
@@ -401,16 +402,17 @@
 </div>
 </div>
 </div>
+
 <div class="card-3d-wrapper group h-full">
 <div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
 <div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-4xl text-cyan-400">extension</span>
 </div>
-<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-900/40 border border-cyan-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
-<img alt="Puzzle Esencia" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:scale-95 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL5joIvUe5hoUxrMb3_lK7JE4EQ7nXZZzHa8Utb6z-hOHWioCRHCrMpAYR8Jxd-UBk_cmIYSmqaZN0c3x8ycl9Djh515CqdeNi7JDtPzdrgsqQRkyyruYmGQ4ttIiej93JmuFA7Mqo-8hbe5MDRfzUh4p-Z52CkIA8RDTZumP5O8bMnxytQFM2HYeMg8TcT7eT1wCuvUqwUEe6wE5x9R3Nw4sMphEA0x-jdGsH2-tJNQ_5B5l2N9qASoxUvnLuF6dchKHrO6jzao0"/>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-900/40 border border-cyan-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm overflow-hidden">
+<img alt="ESENCIA" class="w-full h-full object-cover transform group-hover:scale-95 transition-transform" src="E.S.E.N.C.I.A izquierda.png"/>
 </div>
 <div class="card-content-lift">
-<h3 class="text-2xl font-bold text-white mb-4">Programa Esencia</h3>
+<h3 class="text-2xl font-bold text-white mb-4">ESENCIA</h3>
 <p class="text-slate-400 mb-6 text-sm leading-relaxed">
                                 El núcleo de nuestra identidad. Formación integral, liderazgo y valores que nos definen como estudiantes.
                             </p>
@@ -421,6 +423,7 @@
 </div>
 </div>
 </div>
+
 </div>
 </div>
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-40 text-center">
@@ -432,8 +435,8 @@
 </div>
 <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">¡Mucha suerte en este 2026!</h2>
 <p class="text-slate-400 text-lg max-w-lg">
-                        Que este nuevo año esté lleno de logros, aprendizaje y comunidad. Estamos aquí para acompañarte en cada paso.
-                    </p>
+                            Que este nuevo año esté lleno de logros, aprendizaje y comunidad. Estamos aquí para acompañarte en cada paso.
+                        </p>
 </div>
 </div>
 </div>
@@ -449,9 +452,9 @@
 <span class="text-white font-display font-bold text-xl tracking-wide">Manos Unidas</span>
 </div>
 <p class="text-slate-500 text-sm max-w-sm">
-                        Comprometidos con el bienestar y desarrollo integral de cada estudiante.
-                        <br/>© 2026 Centro de Estudiantes. Todos los derechos reservados.
-                    </p>
+                            Comprometidos con el bienestar y desarrollo integral de cada estudiante.
+                            <br/>© 2026 Centro de Estudiantes. Todos los derechos reservados.
+                        </p>
 </div>
 <div class="flex space-x-6">
 <a class="text-slate-400 hover:text-white transition-colors hover:bg-white/5 p-3 rounded-full" href="#">

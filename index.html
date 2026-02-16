@@ -37,7 +37,7 @@
 <style>
         body {
             font-family: 'Outfit', sans-serif;
-            perspective: 1000px;
+            /* Se eliminó 'perspective' de aquí para arreglar el fondo fijo */
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Space Grotesk', sans-serif;
@@ -164,13 +164,15 @@
     </style>
 </head>
 <body class="bg-background-dark text-slate-200 min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-white">
-<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+
+<div class="fixed inset-0 w-full h-full -z-50 pointer-events-none">
     <div class="absolute inset-0 bg-black">
         <img src="manos_unidas_oscuro.png" alt="Fondo" class="w-full h-full object-cover opacity-20">
     </div>
     <div class="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
     <div class="absolute bottom-[-10%] right-[10%] w-[700px] h-[700px] bg-secondary/5 rounded-full blur-[120px] opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
 </div>
+
 <nav class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-background-dark/80">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">

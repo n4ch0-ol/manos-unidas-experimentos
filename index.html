@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manos Unidas - Comunidad y Progreso</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#84CC16", 
+                        secondary: "#A855F7", 
+                        accent: "#06B6D4", 
+                        "background-dark": "#0f172a", 
+                        "surface-dark": "#1e293b", 
+                        "surface-glass": "rgba(30, 41, 59, 0.7)",
+                    },
+                    fontFamily: {
+                        display: ["'Space Grotesk'", "sans-serif"],
+                        body: ["'Outfit'", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                        'glow': '0 0 20px rgba(132, 204, 22, 0.3)',
+                    },
+                    backdropFilter: {
+                        'glass': 'blur(12px)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            perspective: 1000px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .card-3d-wrapper {
+            perspective: 1500px;
+            transform-style: preserve-3d;
+        }
+        .card-3d {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card-3d:hover {
+            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px) translateY(-10px);
+            box-shadow: 
+                -10px 10px 40px -5px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                0 0 20px rgba(132, 204, 22, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            z-index: 10;
+        }
+        .card-content-lift {
+            transform: translateZ(30px);
+            transform-style: preserve-3d;
+        }
+        .card-icon-lift {
+            transform: translateZ(50px);
+            transition: transform 0.4s ease;
+        }
+        .card-3d:hover .card-icon-lift {
+            transform: translateZ(70px) scale(1.1);
+        }
+        .orb-complex-container {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            animation: float-orb 6s ease-in-out infinite;
+        }
+        .orb-layer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+        }
+        .orb-core {
+            background: radial-gradient(circle at 30% 30%, #fff, #A855F7, #581c87);
+            box-shadow: 0 0 40px #A855F7;
+            transform: translateZ(0);
+        }
+        .orb-ring-1 {
+            border: 3px solid rgba(132, 204, 22, 0.8);
+            border-left-color: transparent;
+            border-right-color: transparent;
+            animation: spin-orb 4s linear infinite;
+            transform: rotateX(60deg) scale(1.4);
+            box-shadow: 0 0 15px rgba(132, 204, 22, 0.4);
+        }
+        .orb-ring-2 {
+            border: 2px dashed rgba(6, 182, 212, 0.7);
+            animation: spin-orb-reverse 8s linear infinite;
+            transform: rotateY(60deg) scale(1.2);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+        .orb-glow {
+            filter: blur(25px);
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, transparent 70%);
+            transform: translateZ(-20px);
+            width: 180%;
+            height: 180%;
+            left: -40%;
+            top: -40%;
+        }
+        @keyframes spin-orb { to { transform: rotateX(60deg) rotateZ(360deg) scale(1.4); } }
+        @keyframes spin-orb-reverse { to { transform: rotateY(60deg) rotateZ(-360deg) scale(1.2); } }
+        @keyframes float-orb { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .btn-modern {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-modern:hover {
+            background: rgba(132, 204, 22, 0.2);
+            border-color: rgba(132, 204, 22, 0.5);
+            box-shadow: 0 0 20px rgba(132, 204, 22, 0.3);
+            transform: translateY(-2px);
+        }
+        .btn-primary-glow {
+            background: #84CC16;
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(132, 204, 22, 0.4);
+        }
+        .btn-primary-glow:hover {
+            background: #a3e635;
+            box-shadow: 0 0 30px rgba(132, 204, 22, 0.6);
+        }
+        .bg-mesh {
+            background-color: #020617; 
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,10%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,10%,1) 0, transparent 50%);}
+        .hero-gradient-text {
+            background: linear-gradient(to right, #84CC16, #fff, #A855F7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #84CC16;
+        }.simple-wish-container {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-slate-200 min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+<div class="absolute inset-0 bg-mesh"></div>
+<div class="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
+<div class="absolute bottom-[-10%] right-[10%] w-[700px] h-[700px] bg-secondary/5 rounded-full blur-[120px] opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+</div>
+<nav class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-background-dark/80">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex-shrink-0 flex items-center gap-4 cursor-pointer group">
+<div class="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-full bg-white/5 border border-white/10 group-hover:border-primary/50 transition-all shadow-lg">
+<img alt="Manos Unidas Logo" class="w-12 h-12 object-cover relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIlg_FFycm9Zp0AVDOCITAS8ytYcxQtQ34r3fSNB3q0rsXuYoRqTHQwNgKMBvwb9pQ2A8VP_4MsLxzlTNS-Uh90SStw4fJ7GFZJoQ9ynKP9HG-HmDbgE83J6PbdtzP0G9cnncZaZnx9Yvuy72qUbNpL3rgiGBO2bZBGhVgOO9e2IM0Ctq0-pLUPqsmgSZQuq1EhjMpE95P_-4FIXmbhKJnC1wRMYGzIBXlXWDPKTrbmT3hdKZj5mtixPNC64EmluAloEBDkySlHKQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-display font-bold text-xl leading-none text-white tracking-tight">Manos Unidas</span>
+<span class="text-xs text-primary font-medium tracking-wider uppercase mt-1">Centro de Estudiantes</span>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="ml-10 flex items-center space-x-8 text-sm font-medium">
+<a class="text-slate-300 hover:text-white hover:scale-105 transition-all" href="#">Inicio</a>
+<a class="text-slate-300 hover:text-white hover:scale-105 transition-all" href="#">Nosotros</a>
+<a class="text-slate-300 hover:text-white hover:scale-105 transition-all" href="#">Proyectos</a>
+<a class="text-slate-300 hover:text-white hover:scale-105 transition-all" href="#">Transparencia</a>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<a class="btn-primary-glow px-6 py-2.5 rounded-full text-sm font-bold transition-transform transform hover:-translate-y-0.5" href="#">Unirse Ahora</a>
+</div>
+<div class="-mr-2 flex md:hidden">
+<button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="relative z-10 pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pb-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+<div class="relative w-full">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium shadow-glow">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Gestión 2026: Compromiso Real</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold mb-8 text-white tracking-tight leading-tight">
+                            Construyendo el <br/>
+<span class="hero-gradient-text animate-pulse">Futuro Juntos</span>
+</h1>
+<p class="text-xl text-slate-300 mb-10 max-w-lg font-light leading-relaxed">
+                            Redefiniendo la vida estudiantil a través de la colaboración, transparencia y unidad. Un centro de estudiantes hecho por y para todos.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-5">
+<button class="btn-primary-glow px-8 py-4 rounded-xl font-bold text-slate-900 flex items-center justify-center gap-3 transition-all hover:scale-105">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span>Ver Propuestas</span>
+</button>
+<button class="btn-modern px-8 py-4 rounded-xl text-white font-medium flex items-center justify-center gap-3">
+<span>Conocer al Equipo</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="mt-16 flex items-center gap-6 text-sm text-slate-400">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-900 flex items-center justify-center overflow-hidden shadow-lg">
+<span class="material-symbols-outlined text-yellow-400 text-lg">emoji_events</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-900 flex items-center justify-center overflow-hidden shadow-lg">
+<span class="material-symbols-outlined text-green-400 text-lg">school</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-900 flex items-center justify-center overflow-hidden shadow-lg">
+<span class="material-symbols-outlined text-blue-400 text-lg">groups</span>
+</div>
+</div>
+<div>
+<p class="font-medium text-white">Impacto Comunitario</p>
+<p class="text-xs opacity-70">Deportes, Educación y Cultura</p>
+</div>
+</div>
+</div>
+<div class="relative h-[500px] hidden lg:flex items-center justify-center card-3d-wrapper">
+<div class="card-3d w-96 h-[480px] rounded-3xl p-8 absolute transform rotate-y-12 rotate-z-2 border-white/10 bg-gradient-to-br from-white/5 to-white/0 shadow-2xl">
+<div class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-md border border-white/10">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+</div>
+<div class="mt-8 space-y-4">
+<div class="h-2 w-12 bg-primary/50 rounded-full"></div>
+<h3 class="text-3xl font-bold text-white leading-tight">Innovación<br/>Estudiantil</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Impulsando proyectos que transforman nuestra realidad académica y social.</p>
+</div>
+<div class="mt-12 relative flex justify-center perspective-500 card-content-lift">
+<div class="absolute inset-0 bg-primary/20 blur-[60px] rounded-full transform translate-y-10"></div>
+<img alt="Hero Illustration" class="w-56 h-56 object-contain drop-shadow-2xl animate-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVjhqiW9c9iN69R2Q9vYoBF8-vIoOJ0Ax4nQUfDItFI2jJTwcB8knel_j7MpLYiRC2Cmw4--1d5QJJKbFpPXppWvMVISMoOA239Nt-XC05touFNOLcmwWcMsnfJ6qR43ZSO3f9YNdyqVR8_NIJMNkxXhYbSA74UFa8uaG_8ddjGwQiikmrrY75WVCRoqmdrnUfBxvnTqtEA3cgN8b8YEONgSaprW1OOw_Cm6xPzYWkqIzNsu0LAtcc_5EUHt94OUXSTmoKGus-k1I" style="animation: float-orb 6s ease-in-out infinite;"/>
+</div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="flex justify-between items-center text-xs text-slate-400 font-medium">
+<span>Progreso</span>
+<span class="text-primary">100% Comprometidos</span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary w-full rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="absolute -z-10 top-0 right-10 w-72 h-72 border border-primary/10 rounded-full animate-[spin_30s_linear_infinite]"></div>
+<div class="absolute -z-10 bottom-20 left-0 w-48 h-48 border border-dashed border-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-end justify-between mb-16 border-b border-white/10 pb-8">
+<div>
+<h2 class="text-4xl font-bold text-white tracking-tight mb-3">
+                        Nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Iniciativas</span>
+</h2>
+<p class="text-slate-400 text-lg max-w-2xl font-light">
+                        Áreas clave donde enfocamos nuestra energía para mejorar tu experiencia universitaria.
+                    </p>
+</div>
+<div class="hidden md:block">
+<a class="text-primary hover:text-white transition-colors flex items-center gap-2 font-medium" href="#">
+                        Ver todas las propuestas
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+<div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-blue-400">sports_esports</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-900/40 border border-blue-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Trofeo" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0NvMPz57lcNHw2cPsMrfzy8YyMwL3XnyeHPKd_qkvjseHAOGLhiVBDjQZGGFw3HT23EsjPQ2ZHydI0WWqLdznadB5JYuStU0P2Crd7LzldR5u6fT3qMAoqzphdnl4OCo0zdGhcYK3DpcXDJ7Gr0Wcg929mEyA86mxtrU18lZA_Rbfn4W1h81vV9uUxK-xIdQvsi1ShoW_HyyepHnsJ6qVMHz1Ih12DHIi6Qd4pJ2mIkHamP4w2gIMTCDaKMywYSF9vjS2WBiWv3g"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Deportes y Gaming</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                Torneos competitivos y actividades recreativas. Unimos la pasión por los e-sports con el deporte tradicional.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-blue-400 font-medium bg-blue-400/10 px-3 py-1 rounded-full">Activo</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+<div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-green-400">hiking</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-900/40 border border-green-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Zapatillas Running" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:rotate-12 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyO39kezZSHJOjD2TfwNFLBwyV4RvrQM-23hMkRhR-E9-Dj2qPCr9ejMVtUBp1UFWnXKZ6GalrlMWKBreQfNcRj3o_hjaq2CV2swjhzcN1a18Zcm5_w6EKlCMaiGryZo9-i3zKsftsDFkbFr9QOMkII-tuKfn6BROyBvEqfeaGMwbzr4qlP4a9EOB4GdbuH_cAVEzL_DdoMRgF0138OLpPUmqZIiMOO3uAvOF10eQahgnzoOLiZnG1kQfdPne81iL9XVnEpAQLBk"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Vida al Aire Libre</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                Conectando estudiantes con la naturaleza. Correcaminatas, eventos outdoor y bienestar físico en la Sierra.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-green-400 font-medium bg-green-400/10 px-3 py-1 rounded-full">Salud</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-white/5 border-secondary/30 shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+<div class="absolute top-6 right-6">
+<span class="flex items-center gap-2 bg-red-500/20 border border-red-500/30 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-red-200 uppercase tracking-wider">En Vivo</span>
+</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-900/40 border border-purple-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Micrófono" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:-translate-y-2 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP4mgXqjYjgm08iL8PrqIYQ0M-9scY-0j3S3RibEvQWkRFOqiziX5EcZ0RVApxRnz2HjKDO5HGjqVqeOb1eFh_kzrHbBVmtixVXnlf4-oArG3LsnQjevTdYlGIV08NCezva4KmOk9sj7CMGBX0u5ZlhTl6FbXy2W3j25eb8YjzWia04E0SODKKo6LFBiiZFwXIsPYqREG07nMI8-tXXj7mvHSdSQ8fqHKgBtWnJug2gVsF0DLMg67zwEwLcHNhfj3FlpPiP5oE8Ag"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Podcast Studio</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                Espacio de voz y expresión. Entrevistas, debates y streaming de alta calidad para comunicar ideas.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-purple-400 font-medium bg-purple-400/10 px-3 py-1 rounded-full">Media</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">mic</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+<div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-yellow-400">inventory_2</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-900/40 border border-yellow-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Libros y Recursos" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:skew-y-3 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh6Bg2w2fwBVoNv4Rf_3Hmpw4GeXrAh6LuiRczyOnE0xK9putr2h_fcQTeiMscDui3AESm1wIl1B9DvA4wyc7bd8OALNBnRzF5Gc1OO16Uw_m2GY1JoDQw57YD15ZX_IDMM6RElMr7UqOC___a07L7V13oFjx6zjuV28NgZAhpOjnayzMVwgkFM01fXTv2piMzmsgDerKXIjpU6tjx-ktr1060-2DvtaGVXmSvKTVFp1RXl-W-PSJ_e55DaHxuE0SDo7hI2op6f6I"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Banco de Recursos</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                Gestión inteligente de materiales de estudio y herramientas. Compras colaborativas para el beneficio de todos.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-yellow-400 font-medium bg-yellow-400/10 px-3 py-1 rounded-full">Servicios</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+<div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-pink-400">palette</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-900/40 border border-pink-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Paleta de Arte" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:rotate-6 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDPhPYbnU8FdOqUCAW3wxZHWSLd3amBtGbBvq37rpF5qhys-U6V0gJEbzheXKRO7tdEHS5VUjkwDLEOFB3ShZ5xeAdozRksFbxtZlI_drpuKBIBjGvZFrk0cuTczsfufLRrah6icfwFL2mKzqm-Ka_E_VJ00VeqYlIS0gP0zElOPuDknPdw2MsKO4JVTu0jK1aDBNi3JPn88eTUJuyXCPbl4CXPPe0QWe_YbGP-pMsA06dqdrGnH6U81axU2EPkIkJyW8jXpZVNg"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Arte y Cultura</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                Fomentando la creatividad. Espacios de exposición, talleres y eventos culturales para toda la comunidad.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-pink-400 font-medium bg-pink-400/10 px-3 py-1 rounded-full">Cultura</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card-3d-wrapper group h-full">
+<div class="card-3d rounded-3xl p-8 h-full relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent">
+<div class="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-cyan-400">extension</span>
+</div>
+<div class="card-icon-lift w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-900/40 border border-cyan-500/20 flex items-center justify-center mb-8 shadow-lg backdrop-blur-sm">
+<img alt="Puzzle Esencia" class="w-12 h-12 object-contain drop-shadow-lg transform group-hover:scale-95 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL5joIvUe5hoUxrMb3_lK7JE4EQ7nXZZzHa8Utb6z-hOHWioCRHCrMpAYR8Jxd-UBk_cmIYSmqaZN0c3x8ycl9Djh515CqdeNi7JDtPzdrgsqQRkyyruYmGQ4ttIiej93JmuFA7Mqo-8hbe5MDRfzUh4p-Z52CkIA8RDTZumP5O8bMnxytQFM2HYeMg8TcT7eT1wCuvUqwUEe6wE5x9R3Nw4sMphEA0x-jdGsH2-tJNQ_5B5l2N9qASoxUvnLuF6dchKHrO6jzao0"/>
+</div>
+<div class="card-content-lift">
+<h3 class="text-2xl font-bold text-white mb-4">Programa Esencia</h3>
+<p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                                El núcleo de nuestra identidad. Formación integral, liderazgo y valores que nos definen como estudiantes.
+                            </p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-cyan-400 font-medium bg-cyan-400/10 px-3 py-1 rounded-full">Identidad</span>
+<span class="material-symbols-outlined text-slate-500 text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-40 text-center">
+<div class="simple-wish-container rounded-2xl p-10 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
+<div class="relative z-10 flex flex-col items-center justify-center gap-4">
+<div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-3xl text-primary">celebration</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">¡Mucha suerte en este 2026!</h2>
+<p class="text-slate-400 text-lg max-w-lg">
+                        Que este nuevo año esté lleno de logros, aprendizaje y comunidad. Estamos aquí para acompañarte en cada paso.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<footer class="relative z-10 border-t border-white/5 bg-[#0b1121]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+<img alt="Manos Unidas Small Logo" class="w-5 h-5 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIlg_FFycm9Zp0AVDOCITAS8ytYcxQtQ34r3fSNB3q0rsXuYoRqTHQwNgKMBvwb9pQ2A8VP_4MsLxzlTNS-Uh90SStw4fJ7GFZJoQ9ynKP9HG-HmDbgE83J6PbdtzP0G9cnncZaZnx9Yvuy72qUbNpL3rgiGBO2bZBGhVgOO9e2IM0Ctq0-pLUPqsmgSZQuq1EhjMpE95P_-4FIXmbhKJnC1wRMYGzIBXlXWDPKTrbmT3hdKZj5mtixPNC64EmluAloEBDkySlHKQ"/>
+</div>
+<span class="text-white font-display font-bold text-xl tracking-wide">Manos Unidas</span>
+</div>
+<p class="text-slate-500 text-sm max-w-sm">
+                        Comprometidos con el bienestar y desarrollo integral de cada estudiante.
+                        <br/>© 2026 Centro de Estudiantes. Todos los derechos reservados.
+                    </p>
+</div>
+<div class="flex space-x-6">
+<a class="text-slate-400 hover:text-white transition-colors hover:bg-white/5 p-3 rounded-full" href="#">
+<span class="sr-only">Instagram</span>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:bg-white/5 p-3 rounded-full" href="#">
+<span class="sr-only">Facebook</span>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
